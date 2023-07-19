@@ -1,0 +1,59 @@
+{
+  "name": "agile-css",
+  "version": "2.1.11",
+  "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "bin": {
+    "agile-css": "./bin/cli.mjs"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "test:cli": "node ./dist/cli.mjs -w -p 1234 -c awesome",
+    "release": "changeset publish",
+    "lint": "tsc --noEmit",
+    "start": "esno src/index.ts",
+    "test": "vitest"
+  },
+  "author": "hunghg255",
+  "devDependencies": {
+    "@changesets/cli": "^2.26.1",
+    "@types/node": "^18.15.13",
+    "esno": "^0.16.3",
+    "husky": "^8.0.3",
+    "terser": "^5.17.1",
+    "tslib": "^2.5.2",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "commander": "^10.0.1",
+    "globby": "^13.1.4",
+    "jiti": "^1.18.2",
+    "unbuild": "^1.2.1"
+  },
+  "keywords": []
+}
