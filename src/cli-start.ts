@@ -43,12 +43,14 @@ export async function startCli(cwd = process.cwd(), argv = process.argv) {
       .parse(argv);
     const options = commander.program.opts();
 
+    //@ts-ignore
     const PORT = options.port || 4321;
+    //@ts-ignore
     const server = http.createServer();
     const FILE_NAME_CONFIG = options.config ?? DEFAULT_FILE_NAME;
 
     const configDir = path.resolve(cwd, FILE_NAME_CONFIG);
-
+    //@ts-ignore
     let started = false;
 
     const defineConfig =
@@ -63,6 +65,7 @@ export async function startCli(cwd = process.cwd(), argv = process.argv) {
       output: configOutput,
       customValue,
       plugins = [],
+      //@ts-ignore
       ...config
     } = defineConfig();
 

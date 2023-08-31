@@ -33,27 +33,33 @@
     "build": "unbuild",
     "dev": "unbuild --stub",
     "test:cli": "node ./dist/cli.mjs -w -p 1234 -c awesome",
-    "release": "changeset publish",
     "lint": "tsc --noEmit",
     "start": "esno src/index.ts",
-    "test": "vitest"
+    "test": "vitest",
+    "verify-commit": "verify-commit-msg",
+    "postinstall": "git-scm-hooks",
+    "release": "bumpp -r && npm publish"
   },
   "author": "hunghg255",
   "devDependencies": {
-    "@changesets/cli": "^2.26.1",
-    "@types/node": "^18.15.13",
+    "@types/node": "^18.17.12",
     "esno": "^0.16.3",
-    "husky": "^8.0.3",
-    "terser": "^5.17.1",
-    "tslib": "^2.5.2",
-    "typescript": "^5.0.4"
+    "git-scm-hooks": "^0.0.7",
+    "terser": "^5.19.3",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
+    "verify-commit-msg": "^0.0.9"
   },
   "dependencies": {
     "chokidar": "^3.5.3",
     "commander": "^10.0.1",
-    "globby": "^13.1.4",
-    "jiti": "^1.18.2",
+    "globby": "^13.2.2",
+    "jiti": "^1.19.3",
     "unbuild": "^1.2.1"
   },
-  "keywords": []
+  "keywords": [],
+  "git-hooks": {
+    "pre-commit": "npm run lint",
+    "commit-msg": "npm run verify-commit"
+  }
 }
