@@ -43,6 +43,7 @@
   "author": "hunghg255",
   "devDependencies": {
     "@types/node": "^18.17.12",
+    "bumpp": "^9.2.0",
     "esno": "^0.16.3",
     "git-scm-hooks": "^0.0.7",
     "terser": "^5.19.3",
