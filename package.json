@@ -13,14 +13,6 @@
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
-  },
   "bin": {
     "agile-css": "./bin/cli.mjs"
   },
@@ -37,7 +29,7 @@
     "start": "esno src/index.ts",
     "test": "vitest",
     "verify-commit": "verify-commit-msg",
-    "postinstall": "git-scm-hooks",
+    "prepare": "git-scm-hooks",
     "release": "bumpp -r && npm publish"
   },
   "author": "hunghg255",
