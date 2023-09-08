@@ -41,7 +41,7 @@
     "terser": "^5.19.3",
     "tslib": "^2.6.2",
     "typescript": "^5.2.2",
-    "verify-commit-msg": "^0.0.9"
+    "verify-commit-msg": "^0.0.10"
   },
   "dependencies": {
     "chokidar": "^3.5.3",
