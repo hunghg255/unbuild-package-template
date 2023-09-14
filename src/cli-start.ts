@@ -1,30 +1,17 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import http from 'node:http';
 import path from 'node:path';
-import jiti from 'jiti';
-import * as commander from 'commander';
-import http from 'http';
-
-function tryRequire(id: string, rootDir: string = process.cwd()) {
-  const _require = jiti(rootDir, { interopDefault: true, esmResolve: true });
-  try {
-    return _require(id);
-  } catch (error: any) {
-    if (error.code !== 'MODULE_NOT_FOUND') {
-      console.error(`Error trying import ${id} from ${rootDir}`, error);
-    }
-    return {};
-  }
-}
 
 const COLORS = {
-  black: '\x1b[30m',
-  red: '\x1b[31m',
-  green: '\x1b[32m',
-  yellow: '\x1b[33m',
-  blue: '\x1b[34m',
-  magenta: '\x1b[35m',
-  cyan: '\x1b[36m',
-  white: '\x1b[37m',
-  console_color: '\x1b[0m',
+  black: '\u001B[30m',
+  red: '\u001B[31m',
+  green: '\u001B[32m',
+  yellow: '\u001B[33m',
+  blue: '\u001B[34m',
+  magenta: '\u001B[35m',
+  cyan: '\u001B[36m',
+  white: '\u001B[37m',
+  console_color: '\u001B[0m',
 } as const;
 
 const colorConsoleText = (text: string, color: keyof typeof COLORS) => {
@@ -34,41 +21,9 @@ const colorConsoleText = (text: string, color: keyof typeof COLORS) => {
 
 const DEFAULT_FILE_NAME = 'test-config';
 
-export async function startCli(cwd = process.cwd(), argv = process.argv) {
+export function startCli(cwd = process.cwd(), argv = process.argv) {
   try {
-    commander.program
-      .option('-p, --port <number>', 'port to listen on', parseInt)
-      .option('-w, --watch', 'watch for changes and reload')
-      .option('-c, --config <file_name>', 'File name config')
-      .parse(argv);
-    const options = commander.program.opts();
-
-    //@ts-ignore
-    const PORT = options.port || 4321;
-    //@ts-ignore
-    const server = http.createServer();
-    const FILE_NAME_CONFIG = options.config ?? DEFAULT_FILE_NAME;
-
-    const configDir = path.resolve(cwd, FILE_NAME_CONFIG);
-    //@ts-ignore
-    let started = false;
-
-    const defineConfig =
-      tryRequire(`./${FILE_NAME_CONFIG}.config`, configDir) || {};
-
-    if (JSON.stringify(defineConfig) === '{}') {
-      throw new Error('Not Found Config');
-    }
-
-    const {
-      input: configInput,
-      output: configOutput,
-      customValue,
-      plugins = [],
-      //@ts-ignore
-      ...config
-    } = defineConfig();
-
+    console.log('CLI');
   } catch (error: any) {
     colorConsoleText('❌ Agile CSS Error: ' + error.message, 'red');
   }

@@ -23,7 +23,3 @@ jobs:
       - run: npx changeloggithub@latest
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-      - name: Publish
-        run: |
-          echo "Publishing"

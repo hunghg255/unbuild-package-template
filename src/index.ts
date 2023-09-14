@@ -1,1 +1,8 @@
-export const a = 1;
+
+type A = {
+  count: number;
+}
+
+export const a: A = {
+  count: 1,
+}

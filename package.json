@@ -1,6 +1,6 @@
 {
-  "name": "agile-css",
-  "version": "2.1.11",
+  "name": "unbuild-package",
+  "version": "0.0.0",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -14,7 +14,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "bin": {
-    "agile-css": "./bin/cli.mjs"
+    "bin-cli": "./bin/cli.mjs"
   },
   "files": [
     "bin",
@@ -30,29 +30,35 @@
     "test": "vitest",
     "verify-commit": "verify-commit-msg",
     "prepare": "git-scm-hooks",
-    "release": "bumpp -r && npm publish"
+    "changelog": "npx changeloggithub@latest --all true && git add CHANGELOG.md && git commit -m 'chore: update CHANGELOG.md'",
+    "release": "bumpp -r && npm run changelog && npm publish"
   },
   "author": "hunghg255",
   "devDependencies": {
-    "@types/node": "^18.17.12",
+    "@hunghg255/eslint-config-ts": "^0.0.6",
+    "@types/node": "^18.17.15",
     "bumpp": "^9.2.0",
     "esno": "^0.16.3",
     "git-scm-hooks": "^0.0.7",
-    "terser": "^5.19.3",
     "tslib": "^2.6.2",
     "typescript": "^5.2.2",
-    "verify-commit-msg": "^0.0.10"
+    "verify-commit-msg": "^0.0.10",
+    "vitest": "^0.34.4"
   },
   "dependencies": {
-    "chokidar": "^3.5.3",
-    "commander": "^10.0.1",
-    "globby": "^13.2.2",
-    "jiti": "^1.19.3",
     "unbuild": "^1.2.1"
   },
-  "keywords": [],
   "git-hooks": {
     "pre-commit": "npm run lint",
     "commit-msg": "npm run verify-commit"
+  },
+  "keywords": [],
+  "homepage": "https://github.com/hunghg255/unbuild-package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hunghg255/unbuild-package"
+  },
+  "bugs": {
+    "url": "https://github.com/hunghg255/unbuild-package/issues"
   }
 }
