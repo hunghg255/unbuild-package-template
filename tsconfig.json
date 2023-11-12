@@ -5,18 +5,17 @@
     /* Base Options: */
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "target": "es2022",
+    "target": "ES2015",
     "verbatimModuleSyntax": false,
     "allowJs": true,
-    "resolveJsonModule": true,
     "moduleDetection": "force",
+    "moduleResolution": "NodeNext",
 
     /* Strictness */
     "strict": true,
     "noUncheckedIndexedAccess": true,
 
     /* If transpiling with TypeScript: */
-    "moduleResolution": "NodeNext",
     "module": "NodeNext",
 
     /* If NOT transpiling with TypeScript: */
@@ -25,12 +24,12 @@
     "noEmit": true,
 
     /* If your code runs in the DOM: */
-    "lib": ["es2022", "dom", "dom.iterable"],
+    "lib": ["es2022"],
 
     /* If your code doesn't run in the DOM: */
     // "lib": ["es2022"],
     /* If you're building for a library: */
-    "declaration": true,
+    "declaration": true
 
     /* If you're building for a library in a monorepo: */
     // "composite": true,

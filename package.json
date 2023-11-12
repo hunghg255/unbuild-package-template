@@ -36,7 +36,7 @@
   },
   "author": "hunghg255",
   "devDependencies": {
-    "@hunghg255/eslint-config-ts": "^0.0.6",
+    "@hunghg255/eslint-config-ts": "^0.0.8",
     "@types/node": "^18.17.15",
     "bumpp": "^9.2.0",
     "esno": "^0.16.3",
@@ -45,7 +45,7 @@
     "tslib": "^2.6.2",
     "typescript": "^5.2.2",
     "verify-commit-msg": "^0.0.10",
-    "vitest": "^0.34.4"
+    "vitest": "^0.34.6"
   },
   "dependencies": {
     "unbuild": "^1.2.1"
