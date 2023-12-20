@@ -2,17 +2,20 @@
   "name": "unbuild-package",
   "version": "0.0.0",
   "license": "MIT",
-  "sideEffects": false,
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
+    "import": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "default": "./dist/index.mjs"
+    },
+    "require": {
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
     }
   },
+  "sideEffects": false,
   "bin": {
     "bin-cli": "./bin/cli.mjs"
   },
@@ -37,18 +40,16 @@
   "author": "hunghg255",
   "devDependencies": {
     "@hunghg255/eslint-config-ts": "^0.0.8",
-    "@types/node": "^18.17.15",
-    "bumpp": "^9.2.0",
+    "@types/node": "^18.19.3",
+    "bumpp": "^9.2.1",
     "esno": "^0.16.3",
     "git-scm-hooks": "^0.0.7",
-    "prettier": "^3.0.3",
+    "prettier": "^3.1.1",
     "tslib": "^2.6.2",
-    "typescript": "^5.2.2",
+    "typescript": "^5.3.3",
+    "unbuild": "^2.0.0",
     "verify-commit-msg": "^0.0.10",
     "vitest": "^0.34.6"
-  },
-  "dependencies": {
-    "unbuild": "^1.2.1"
   },
   "git-hooks": {
     "pre-commit": "npm run lint",
