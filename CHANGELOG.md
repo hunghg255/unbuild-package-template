@@ -1,3 +1,13 @@
+## [v0.0.3](https://github.com/hunghg255/unbuild-package-template/compare/v0.0.2...v0.0.3) - 2023-12-23
+### &nbsp;&nbsp;&nbsp;🏡 Chores
+
+- Update CHANGELOG.md &nbsp;-&nbsp; by **hunghg255** [<samp>(2b89f)</samp>](https://github.com/hunghg255/unbuild-package-template/commit/2b89f05)
+- Release v0.0.3 &nbsp;-&nbsp; by **hunghg255** [<samp>(8d3bd)</samp>](https://github.com/hunghg255/unbuild-package-template/commit/8d3bdb0)
+
+### &nbsp;&nbsp;&nbsp;🧹 Other
+
+- Update publish.yml &nbsp;-&nbsp; by **Hung Hoang** [<samp>(71e62)</samp>](https://github.com/hunghg255/unbuild-package-template/commit/71e62bd)
+- Merge branch 'master' of github.com:hunghg255/unbuild-package-template &nbsp;-&nbsp; by **hunghg255** [<samp>(0543d)</samp>](https://github.com/hunghg255/unbuild-package-template/commit/0543d42)
 ## [v0.0.2](https://github.com/hunghg255/unbuild-package-template/compare/v0.0.1...v0.0.2) - 2023-12-23
 ### &nbsp;&nbsp;&nbsp;🏡 Chores
 
