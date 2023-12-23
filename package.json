@@ -35,7 +35,7 @@
     "verify-commit": "verify-commit-msg",
     "prepare": "git-scm-hooks",
     "changelog": "npx changeloggithub@latest --all true && git add CHANGELOG.md && git commit -m 'chore: update CHANGELOG.md'",
-    "release": "bumpp -r && npm run changelog && npm publish"
+    "release": "bumpp -r && npm run changelog"
   },
   "author": "hunghg255",
   "devDependencies": {
