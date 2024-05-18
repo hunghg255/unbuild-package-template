@@ -1,39 +1,15 @@
 {
-  // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
-  "include": ["src"],
   "compilerOptions": {
-    /* Base Options: */
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "target": "ES2015",
-    "verbatimModuleSyntax": false,
-    "allowJs": true,
-    "moduleDetection": "force",
-    "moduleResolution": "NodeNext",
-
-    /* Strictness */
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-
-    /* If transpiling with TypeScript: */
-    "module": "NodeNext",
-
-    /* If NOT transpiling with TypeScript: */
-    // "moduleResolution": "Bundler",
-    // "module": "ESNext",
-    "noEmit": true,
-
-    /* If your code runs in the DOM: */
+    "target": "ESNext",
     "lib": ["ESNext"],
-
-    /* If your code doesn't run in the DOM: */
-    // "lib": ["es2022"],
-    /* If you're building for a library: */
-    "declaration": true
-
-    /* If you're building for a library in a monorepo: */
-    // "composite": true,
-    // "sourceMap": true,
-    // "declarationMap": true
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "rootDir": "."
   }
 }

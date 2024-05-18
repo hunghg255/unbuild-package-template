@@ -40,13 +40,16 @@
   "author": "hunghg255",
   "devDependencies": {
     "@hunghg255/eslint-config-ts": "^0.0.8",
-    "@types/node": "^18.19.3",
-    "bumpp": "^9.2.1",
+    "@types/lodash": "^4.17.4",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^18.19.33",
+    "bumpp": "^9.4.1",
     "esno": "^0.16.3",
     "git-scm-hooks": "^0.0.7",
-    "prettier": "^3.1.1",
+    "lodash": "^4.17.21",
+    "prettier": "^3.2.5",
     "tslib": "^2.6.2",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.5",
     "unbuild": "^2.0.0",
     "verify-commit-msg": "^0.0.10",
     "vitest": "^0.34.6"
@@ -63,5 +66,8 @@
   },
   "bugs": {
     "url": "https://github.com/hunghg255/unbuild-package/issues"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21"
   }
 }

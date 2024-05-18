@@ -1,16 +1,14 @@
 import { defineBuildConfig } from 'unbuild';
 
 export default defineBuildConfig({
-  entries: ['src/index', 'src/cli'],
+  entries: ['src/index'],
   clean: true,
   declaration: true,
-
   rollup: {
-    emitCJS: true,
-    cjsBridge: true,
-    inlineDependencies: true,
+    emitCJS: false,
     esbuild: {
       minify: false,
     },
   },
+  failOnWarn: false,
 });
