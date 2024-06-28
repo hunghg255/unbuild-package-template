@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 18.x
 
-      - run: npm install
+      - run: npm ci
 
       - uses: preactjs/compressed-size-action@v2
         with:
