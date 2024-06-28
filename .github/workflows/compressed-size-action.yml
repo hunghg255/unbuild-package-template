@@ -12,18 +12,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.2.0
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.x
-
-      - run: npm install
-
-      - run: npm ci
-
+          node-version: 18
+          cache: 'pnpm'
+          cache-dependency-path: '**/pnpm-lock.yaml'
       - uses: preactjs/compressed-size-action@v2
-        with:
-          # Any JS files anywhere within a dist directory:
-          pattern: '**/dist/**/*.js'
-
-          # Always ignore SourceMaps and node_modules:
-          exclude: '{**/*.map,**/node_modules/**}'
