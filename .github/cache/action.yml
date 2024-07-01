@@ -1,8 +1,8 @@
-name: "Setup PNPM cache"
+name: 'Setup PNPM cache'
 
-description: "Cache Dependencies"
+description: 'Cache Dependencies'
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Install Node.js
       uses: actions/setup-node@v4
@@ -28,6 +28,9 @@ runs:
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
 
+    # - name: Enable corepack
+    #     run: corepack enable
+
     - name: Install dependencies
-      run: pnpm install
+      run: pnpm install --frozen-lockfile
       shell: bash

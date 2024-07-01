@@ -1,0 +1,24 @@
+name: Publish Any Commit
+
+on: [push, pull_request]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pr-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Continuous integration
+        uses: ./.github/cache
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Release for Pull request
+        run: pnpx pkg-pr-new publish
