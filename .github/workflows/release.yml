@@ -16,14 +16,12 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
+      - name: Setup Continuous integration
+        uses: ./.github/cache
 
-      - run: npx changeloggithub@latest
+      - run: pnpm dlx changeloggithub@latest
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

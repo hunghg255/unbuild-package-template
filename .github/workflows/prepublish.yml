@@ -1,4 +1,4 @@
-name: CI
+name: Publish Any Commit
 
 on: [pull_request]
 
@@ -7,8 +7,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  pr-release:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -16,4 +17,11 @@ jobs:
       - name: Setup Continuous integration
         uses: ./.github/cache
 
-      - run: pnpm run lint && pnpm run build
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Release for Pull request
+        run: pnpx pkg-pr-new publish
