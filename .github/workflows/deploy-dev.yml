@@ -1,0 +1,55 @@
+name: Vercel Deployment Development
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+on:
+  push:
+    branches:
+      - main
+
+# This is what will cancel the workflow
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  Deploy-Deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Continuous integration
+        uses: ./.github/cache
+      - name: Install Vercel CLI
+        run: pnpm install --global vercel@latest
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      # - name: Notify Discord
+      #   if: failure()
+      #   uses: hunghg255/action-notifications@master
+      #   with:
+      #     discord_webhook: ${{ secrets.CI_CD_DISCORD_URL }}
+      #     title: "Deploy dev failed"
+      #     qrcode: https://dev-web.degenpark.io
+      #     description: "Test here: https://dev-web.degenpark.io"
+
+  # notifification:
+  #   needs: Deploy-Production
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     packages: write
+  #     contents: read
+
+  #   steps:
+  #     - uses: hunghg255/action-notifications@master
+  #       if: always()
+  #       with:
+  #         discord_webhook: ${{ secrets.CI_CD_DISCORD_URL }}
+  #         title: "Deploy dev successfully"
+  #         qrcode: https://dev-web.degenpark.io
+  #         description: "Test here: https://dev-web.degenpark.io"
