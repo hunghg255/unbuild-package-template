@@ -5,7 +5,8 @@ export class PrettyError extends Error {
     this.name = this.constructor.name
 
     if (typeof Error.captureStackTrace === 'function')
-    { Error.captureStackTrace(this, this.constructor) }
+    { Error.captureStackTrace(this,
+      this.constructor) }
 
     else
     { this.stack = new Error(message).stack }

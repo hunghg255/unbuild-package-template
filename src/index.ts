@@ -1,3 +1,2 @@
-import { isArray } from 'lodash-es';
 
-console.log(isArray('Hello world!'));
+export const sum = (a: number, b: number) => a + b;

@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import http from 'node:http';
-import path from 'node:path';
 
 const COLORS = {
   black: '\u001B[30m',
@@ -14,17 +11,18 @@ const COLORS = {
   console_color: '\u001B[0m',
 } as const;
 
-const colorConsoleText = (text: string, color: keyof typeof COLORS) => {
+function colorConsoleText (text: string, color: keyof typeof COLORS) {
   const coloredText = `${COLORS[color]}${text}${COLORS.console_color}`;
   return console.log(coloredText);
-};
+}
 
-const DEFAULT_FILE_NAME = 'test-config';
+const DEFAULT_FILE_NAME = 'test-config'
 
 export function startCli(cwd = process.cwd(), argv = process.argv) {
   try {
     console.log('CLI');
   } catch (error: any) {
-    colorConsoleText('❌ Agile CSS Error: ' + error.message, 'red');
+    colorConsoleText('❌ Agile CSS Error: ' + error.message,
+      'red');
   }
 }

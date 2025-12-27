@@ -1,21 +1,37 @@
 {
   "name": "unbuild-package",
+  "type": "module",
   "version": "0.0.4",
+  "packageManager": "pnpm@8.15.9",
+  "author": "hunghg255",
   "license": "MIT",
+  "homepage": "https://github.com/hunghg255/unbuild-package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hunghg255/unbuild-package"
+  },
+  "bugs": {
+    "url": "https://github.com/hunghg255/unbuild-package/issues"
+  },
+  "keywords": [],
+  "sideEffects": false,
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
+    "require": {
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
+    },
     "import": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.mjs"
     },
-    "require": {
-      "types": "./dist/index.d.cts",
-      "default": "./dist/index.cjs"
+    "globals": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/global.js"
     }
   },
-  "sideEffects": false,
   "bin": {
     "bin-cli": "./bin/cli.mjs"
   },
@@ -28,8 +44,8 @@
     "build": "unbuild",
     "dev": "unbuild --stub",
     "test:cli": "node ./dist/cli.mjs -w -p 1234 -c awesome",
-    "lint": "tsc --noEmit",
-    "lint-es": "eslint --ext .ts,.tsx src --color",
+    "lint": "eslint src --quiet",
+    "fix": "eslint --fix src",
     "start": "esno src/index.ts",
     "test": "vitest",
     "verify-commit": "verify-commit-msg",
@@ -37,37 +53,28 @@
     "changelog": "npx changeloggithub@latest --all true && git add CHANGELOG.md && git commit -m 'chore: update CHANGELOG.md'",
     "release": "bumpp -r && npm run changelog"
   },
-  "author": "hunghg255",
+  "dependencies": {
+    "lodash-es": "^4.17.22"
+  },
   "devDependencies": {
-    "@hunghg255/eslint-config-ts": "^0.0.8",
-    "@types/lodash": "^4.17.4",
+    "@hunghg255/eslint-config": "^0.0.7",
+    "@types/lodash": "^4.17.21",
     "@types/lodash-es": "^4.17.12",
-    "@types/node": "^18.19.33",
-    "bumpp": "^9.4.1",
+    "@types/node": "^18.19.130",
+    "bumpp": "^9.11.1",
+    "eslint": "^9.39.2",
     "esno": "^0.16.3",
     "git-scm-hooks": "^0.0.7",
     "lodash": "^4.17.21",
-    "prettier": "^3.2.5",
-    "tslib": "^2.6.2",
-    "typescript": "^5.4.5",
-    "unbuild": "^2.0.0",
+    "prettier": "^3.7.4",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3",
+    "unbuild": "^3.6.1",
     "verify-commit-msg": "^0.0.10",
     "vitest": "^0.34.6"
   },
   "git-hooks": {
     "pre-commit": "npm run lint",
     "commit-msg": "npm run verify-commit"
-  },
-  "keywords": [],
-  "homepage": "https://github.com/hunghg255/unbuild-package",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hunghg255/unbuild-package"
-  },
-  "bugs": {
-    "url": "https://github.com/hunghg255/unbuild-package/issues"
-  },
-  "dependencies": {
-    "lodash-es": "^4.17.21"
   }
 }

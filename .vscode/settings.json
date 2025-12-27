@@ -1,14 +1,35 @@
 {
   "editor.tabSize": 2,
   "editor.rulers": [100],
-  "editor.formatOnSave": true,
   "git.ignoreLimitWarning": true,
   "editor.quickSuggestions": {
     "strings": true
   },
+
+
+  // Disable the default formatter, use eslint instead
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+
+  // Auto fix
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
   },
+
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml"
+  ],
+
   "workbench.tree.indent": 14,
   "workbench.tree.renderIndentGuides": "always",
   "workbench.colorCustomizations": {
